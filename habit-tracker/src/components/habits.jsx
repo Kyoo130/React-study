@@ -11,15 +11,15 @@ class Habits extends Component {
   };
 
   handleIncrement = (habit) => {
-    console.log(`handleIncrement ${habit}`);
+    console.log(`handleIncrement ${habit.name}`);
   };
 
   handleDecrement = (habit) => {
-    console.log(`handleDecrement ${habit}`);
+    console.log(`handleDecrement ${habit.name}`);
   };
 
   handleDelete = (habit) => {
-    console.log(`handleDelete ${habit}`);
+    console.log(`handleDelete ${habit.name}`);
   };
 
   render() {
