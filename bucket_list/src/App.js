@@ -1,7 +1,9 @@
 import React from "react";
+import styled from "styled-components";
+import { Route } from "react-router-dom";
 
 import BucketList from "./BucketList";
-import styled from "styled-components";
+import Detail from "./Detail";
 
 function App() {
 
@@ -16,7 +18,12 @@ function App() {
       <Container>
         <Title>내 버킷리스트</Title>
         <Line />
-        <BucketList list={list} />
+        <Route path="/" exact>
+          <BucketList list={list} />
+        </Route>
+        <Route path="/detail">
+          <Detail />
+        </Route>
       </Container>
       <Input>
         <input type="text" ref={text} />

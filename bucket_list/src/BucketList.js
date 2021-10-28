@@ -1,15 +1,21 @@
 import React from "react";
 import styled from "styled-components";
+import { useHistory } from "react-router-dom";
+
 
 const BucketList = (props) => {
     console.log(props);
+
+    const history = useHistory();
     const my_lists = props.list;
 
     return (
         <ListStyle>
             {my_lists.map((list, index) => {
                 return (
-                    <ItemStyle className="list_item" key={index} onClick={() => { }}>
+                    <ItemStyle className="list_item" key={index} onClick={() => {
+                        history.push("/detail")
+                    }}>
                         {list}
                     </ItemStyle>
                 );
