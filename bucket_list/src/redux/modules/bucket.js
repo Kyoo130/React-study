@@ -4,7 +4,7 @@
 const CREATE = 'bucket/CREATE';
 
 const initialState = {
-    list: ["영화관 가기", "매일 책읽기", "수영 배우기"]
+    list: ["영화관 가기", "매일 책읽기", "수영 배우기", "코딩하기"]
 }
 
 // Action Creators
