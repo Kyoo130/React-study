@@ -1,6 +1,9 @@
 import React, {useState, useRef} from "react";
+import {Route, Routes} from "react-router-dom";
 import BucketList from "./components/BucketList";
 import styled from "styled-components";
+import Detail from "./components/Detail";
+import NotFound from "./components/NotFound";
 
 function App() {
   const [list, setList] = useState(["영화관 가기", "매일 책읽기", "수영 배우기"]);
@@ -13,11 +16,15 @@ function App() {
     <div className="App">
       <Container>
         <Title>내 버킷리스트</Title>
-        <Line />
-        <BucketList list={list} />
+        <Line/>
+        <Routes>
+          <Route path="/" element={<BucketList list={list}/>}/>
+          <Route path="/detail" element={<Detail />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </Container>
       <Input>
-        <input type="text" ref={textRef} />
+        <input type="text" ref={textRef}/>
         <button onClick={addBucketList}>추가하기</button>
       </Input>
     </div>

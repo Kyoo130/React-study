@@ -1,15 +1,17 @@
 import React from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router";
 
 const BucketList = (props) => {
   console.log(props);
   const my_lists = props.list;
+  const navigate = useNavigate()
 
   return (
     <ListStyle>
       {my_lists.map((list, index) => {
         return (
-          <ItemStyle className="list_item" key={index}>
+          <ItemStyle className="list_item" key={index} onClick={()=>{navigate("/detail")}}>
             {list}
           </ItemStyle>
         );
