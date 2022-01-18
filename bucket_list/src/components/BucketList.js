@@ -13,7 +13,7 @@ const BucketList = () => {
       {my_lists.map((list, index) => {
         return (
           <ItemStyle className="list_item" key={index} onClick={() => {
-            navigate("/detail")
+            navigate("/detail/" + index)
           }}>
             {list}
           </ItemStyle>

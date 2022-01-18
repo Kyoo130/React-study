@@ -22,7 +22,7 @@ function App() {
         <Line/>
         <Routes>
           <Route path="/" element={<BucketList />}/>
-          <Route path="/detail" element={<Detail/>}/>
+          <Route path="/detail/:index" element={<Detail/>}/>
           <Route path="*" element={<NotFound/>}/>
         </Routes>
       </Container>
