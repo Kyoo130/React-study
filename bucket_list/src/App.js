@@ -1,16 +1,19 @@
-import React, {useState, useRef} from "react";
-import {Route, Routes} from "react-router-dom";
-import BucketList from "./components/BucketList";
+import React, {useRef} from "react";
 import styled from "styled-components";
+import {Route, Routes} from "react-router-dom";
+import {useDispatch} from "react-redux"
+import {createBucket} from "./redux/modules/bucket"
+
+import BucketList from "./components/BucketList";
 import Detail from "./components/Detail";
 import NotFound from "./components/NotFound";
 
 function App() {
-  const [list, setList] = useState(["영화관 가기", "매일 책읽기", "수영 배우기"]);
   const textRef = useRef(null);
+  const dispatch = useDispatch();
 
   const addBucketList = () => {
-    setList([...list, textRef.current.value]);
+    dispatch(createBucket(textRef.current.value));
   }
   return (
     <div className="App">
@@ -18,9 +21,9 @@ function App() {
         <Title>내 버킷리스트</Title>
         <Line/>
         <Routes>
-          <Route path="/" element={<BucketList list={list}/>}/>
-          <Route path="/detail" element={<Detail />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="/" element={<BucketList />}/>
+          <Route path="/detail" element={<Detail/>}/>
+          <Route path="*" element={<NotFound/>}/>
         </Routes>
       </Container>
       <Input>
