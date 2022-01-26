@@ -14,7 +14,7 @@ function App() {
   const dispatch = useDispatch();
 
   const addBucketList = () => {
-    dispatch(createBucket(textRef.current.value));
+    dispatch(createBucket({text: textRef.current.value, completed: false}));
   }
   return (
     <div className="App">
