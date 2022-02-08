@@ -1,9 +1,10 @@
 import './App.css';
+import DiaryEdit from "./components/DiaryEdit";
 
 function App() {
   return (
     <div className="App">
-      <h1>Simple Diary</h1>
+      <DiaryEdit />
     </div>
   );
 }
