@@ -1,7 +1,7 @@
 import React from 'react';
 import DiaryItem from "./DiaryItem";
 
-const DiaryList = ({onDelete, diaryList}) => {
+const DiaryList = ({onEdit, onRemove, diaryList}) => {
   return (
     <div className="DiaryList">
       <h2>일기 리스트</h2>
@@ -9,7 +9,7 @@ const DiaryList = ({onDelete, diaryList}) => {
       <div>
         {
           diaryList.map((it) => (
-            <DiaryItem key={it.id} {...it} onDelete={onDelete} />
+            <DiaryItem key={it.id} {...it} onRemove={onRemove} onEdit={onEdit} />
           ))
         }
       </div>
