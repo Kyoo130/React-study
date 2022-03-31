@@ -1,8 +1,10 @@
-import React, {useRef} from "react";
+import React, {useEffect, useRef} from "react";
 import styled from "styled-components";
 import {Route, Routes} from "react-router-dom";
 import {useDispatch} from "react-redux"
 import {createBucket} from "./redux/modules/bucket"
+import {db} from './firebase'
+import { collection, getDoc, getDocs, addDoc } from "firebase/firestore";
 
 import Progress from "./components/Progress";
 import BucketList from "./components/BucketList";
@@ -12,6 +14,12 @@ import NotFound from "./components/NotFound";
 function App() {
   const textRef = useRef(null);
   const dispatch = useDispatch();
+  useEffect(async ()=>{
+    const query = await getDocs(collection(db, "bucket"))
+    query.forEach((doc) => {
+      console.log(doc.id, doc.data())
+    })
+  }, [])
 
   const addBucketList = () => {
     dispatch(createBucket({text: textRef.current.value, completed: false}));
